@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create react app</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function App() {
+        const title = 'React is cool!'
+        const logo = {
+          src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png',
+          alt: 'React',
+          width: 50,
+        }
+
+        // javascript
+        // return `<h1>${title}</h1>`
+        // jsx
+        return (
+          <div>
+            <h1>{title}</h1>
+            <img src={logo.src} alt={logo.alt} width={logo.width} />
+          </div>
+        )
+      }
+
+      // const container = document.getElementById('root')
+      // const root = ReactDOM.createRoot(container)
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(<App />)
+    </script>
+  </body>
+</html>

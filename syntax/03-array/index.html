@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create react app</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function App() {
+        const frameworks = [
+          { id: 1, name: 'Vue' },
+          { id: 2, name: 'React' },
+          { id: 3, name: 'Angular' },
+        ]
+
+        // v1
+        // return (
+        //   <ul>
+        //     {frameworks.map((framework) => (
+        //       <li key={framework.id}>{framework.name}</li>
+        //     ))}
+        //   </ul>
+        // )
+
+        // v2 - if id is not exists
+        // return (
+        //   <ul>
+        //     {frameworks.map(({ name }, index) => (
+        //       <li key={index}>{name}</li>
+        //     ))}
+        //   </ul>
+        // )
+
+        // v3 - separated to a variable
+        const frameworksList = frameworks.map(({ name }, index) => (
+          <li key={index}>{name}</li>
+        ))
+
+        return <ul>{frameworksList}</ul>
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(<App />)
+    </script>
+  </body>
+</html>

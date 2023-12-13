@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create react app</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState, useEffect } = React
+
+      function App() {
+        const initialState = {
+          name: '',
+          email: '',
+        }
+
+        const [state, setState] = useState(initialState)
+
+        function handleSubmit(e) {
+          e.preventDefault()
+          console.log(state)
+          // not need this:
+          // setState((prev) => ({ ...prev, ...initialState }))
+          setState(initialState)
+        }
+
+        function handleChange(e) {
+          // name = 'name', value='a'
+          const { name, value } = e.target
+          // prev: { name: '',email: '', }
+          // { name: '', email: '', name: 'a' }
+          setState((prev) => ({ ...prev, [name]: value }))
+          // { email: '', name: 'a' }
+        }
+
+        return (
+          <form onSubmit={handleSubmit}>
+            <div className='form-group'>
+              <label htmlFor='name'>Name:</label>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                value={state.name}
+                onChange={handleChange}
+              />
+              <p>{state.name}</p>
+            </div>
+            <div className='form-group'>
+              <label htmlFor='email'>Email:</label>
+              <input
+                type='email'
+                id='email'
+                name='email'
+                value={state.email}
+                onChange={handleChange}
+              />
+              <p>{state.email}</p>
+            </div>
+            <div className='form-group'>
+              <button type='submit'>Submit</button>
+            </div>
+          </form>
+        )
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(<App />)
+    </script>
+  </body>
+</html>
