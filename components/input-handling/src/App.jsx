@@ -1,17 +1,8 @@
-import { useState } from 'react'
-
 import './App.css'
-import InputField from './components/InputField'
+import UserForm from './components/UserForm'
 
 function App() {
-  function handleInput() {
-    console.log('Input focused')
-  }
-  return (
-    <div>
-      <InputField onInput={handleInput} />
-    </div>
-  )
+  return <UserForm />
 }
 
 export default App

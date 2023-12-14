@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <>
-      <MainNavigation text='React App' link='https://react.dev/' version={2} />
+      <MainNavigation text="React App" link="https://react.dev/" version={2} />
       <SiteContent counter={counter} />
       <SiteFooter />
     </>
