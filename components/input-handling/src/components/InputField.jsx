@@ -11,7 +11,7 @@ InputField.propTypes = {
 
 export default function InputField({ id, type, label, value, onUpdateValue }) {
   return (
-    <div className='input-group'>
+    <div className="input-group">
       <label htmlFor={id}>{label}:</label>
       <input
         type={type}

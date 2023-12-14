@@ -27,23 +27,23 @@ export default function UserForm() {
   return (
     <form onSubmit={handleSubmit}>
       <InputField
-        id='firstName'
-        label='First name'
-        type='text'
+        id="firstName"
+        label="First name"
+        type="text"
         value={formData.firstName}
         onUpdateValue={updateValue}
       />
       <InputField
-        id='lastName'
-        label='Last name'
-        type='text'
+        id="lastName"
+        label="Last name"
+        type="text"
         value={formData.lastName}
         onUpdateValue={updateValue}
       />
       <InputField
-        id='email'
-        label='Email'
-        type='email'
+        id="email"
+        label="Email"
+        type="email"
         value={formData.email}
         onUpdateValue={updateValue}
       />
